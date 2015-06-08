@@ -57,6 +57,29 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="code\css\bootstrap.css" />
+    <Content Include="code\css\swiper.css" />
+    <Content Include="code\img\1.png" />
+    <Content Include="code\img\2.png" />
+    <Content Include="code\img\3.jpg" />
+    <Content Include="code\img\arrow-left.png" />
+    <Content Include="code\img\arrow-right.png" />
+    <Content Include="code\img\ch.jpg" />
+    <Content Include="code\img\cjk.jpg" />
+    <Content Include="code\img\loading.png" />
+    <Content Include="code\img\lrt.jpg" />
+    <Content Include="code\img\mn1.jpg" />
+    <Content Include="code\img\tly.jpg" />
+    <Content Include="code\img\vote-back.png" />
+    <Content Include="code\img\vote-btn.png" />
+    <Content Include="code\index.html" />
+    <Content Include="code\js\bootstrap.min.js" />
+    <Content Include="code\js\index.js" />
+    <Content Include="code\js\jquery.js" />
+    <Content Include="code\js\swipe.js" />
+    <Content Include="code\js\swiper.min.js" />
+    <Content Include="code\js\touch.js" />
+    <Content Include="code\js\zepto.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +93,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

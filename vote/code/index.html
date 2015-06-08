@@ -7,10 +7,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="css/swiper.css" rel="stylesheet" />
-
+    <link href="css/bootstrap.css" rel="stylesheet" />
     <script src="js/zepto.min.js"></script>
     <script src="js/touch.js"></script>
     <script src="js/swipe.js"></script>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
     <style>
         body {
             margin: 0px;
@@ -52,13 +56,13 @@
         .arrow-left {
             position: absolute;
             top: 91%;
-            width: 3%;
+            /*width: 3%;*/
             left: 32%;
         }
         .arrow-right {
             position: absolute;
             top: 91%;
-            width: 3%;
+            /*width: 3%;*/
             left: 65%;
         }
         #position {
@@ -110,7 +114,15 @@
             width:100%;
             height:100%;
         }
-
+        .fullsize-img {
+            width: 80%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30%;
+            border: 5px solid rgb(79, 167, 205);
+            border-radius: 5px;
+        }
         .per-vote-info {
             display: block;
             width: 100%;
@@ -124,7 +136,7 @@
             }
 
             .per-vote-info .name {
-
+                margin-left: 10%;
             }
 
             .per-vote-info .nums {
@@ -153,68 +165,29 @@
                 <div class="swipe-wrap" style="height: 100%; width: 100%;">
                     <figure style="height: 100%; width: 100%;margin:0px">
                         <div class="wrap" style="height: 100%; width: 100%;">
-                            <div class="image" style="background-color: green; ">
-                                <div class="per-image-div">
-                                    <div class="per-image"><img src="img/3.jpg" /></div>
-                                    <div class="per-vote-info">
-                                        <div class="name">姓名</div>
-                                        <div class="name-text">曹大志</div>
-                                        <div class="nums">票数</div>
-                                        <div class="nums-text">8888</div>
-                                    </div>
-                                    <img class="per-vote-btn" src="img/vote-btn.png" />
-                                </div>
-                                <div class="per-image-div">
-                                    <div class="per-image"><img src="img/3.jpg" /></div>
-                                    <div class="per-vote-info">
-                                        <div class="name">姓名</div>
-                                        <div class="name-text">曹大志</div>
-                                        <div class="nums">票数</div>
-                                        <div class="nums-text">8888</div>
-                                    </div>
-                                    <img class="per-vote-btn" src="img/vote-btn.png" />
-                                </div>
-                                <div class="per-image-div">
-                                    <div class="per-image"><img src="img/3.jpg" /></div>
-                                    <div class="per-vote-info">
-                                        <div class="name">姓名</div>
-                                        <div class="name-text">曹大志</div>
-                                        <div class="nums">票数</div>
-                                        <div class="nums-text">8888</div>
-                                    </div>
-                                    <img class="per-vote-btn" src="img/vote-btn.png" />
-                                </div>
-                                <div class="per-image-div">
-                                    <div class="per-image"><img src="img/3.jpg" /></div>
-                                    <div class="per-vote-info">
-                                        <div class="name">姓名</div>
-                                        <div class="name-text">曹大志</div>
-                                        <div class="nums">票数</div>
-                                        <div class="nums-text">8888</div>
-                                    </div>
-                                    <img class="per-vote-btn" src="img/vote-btn.png" />
-                                </div>
+                            <div class="image image-0">
+                                
                             </div>
                         </div>
                     </figure>
                     <figure style="height: 100%; width: 100%; margin: 0px">
                         <div class="wrap" style="height: 100%; width: 100%;">
-                            <div class="image" style="background-color: blue;  "> </div>
+                            <div class="image image-1"> </div>
                         </div>
                     </figure>
                     <figure style="height: 100%; width: 100%; margin: 0px">
                         <div class="wrap" style="height: 100%; width: 100%;">
-                            <div class="image" style="background-color: red;  "> </div>
+                            <div class="image image-2"> </div>
                         </div>
                     </figure>
                     <figure style="height: 100%; width: 100%; margin: 0px">
                         <div class="wrap" style="height: 100%; width: 100%;">
-                            <div class="image" style="background-color: yellow;  "> </div>
+                            <div class="image image-3" > </div>
                         </div>
                     </figure>
                     <figure style="height: 100%; width: 100%; margin: 0px">
                         <div class="wrap" style="height: 100%; width: 100%;">
-                            <div class="image" style="background-color: black;  "> </div>
+                            <div class="image image-4" > </div>
                         </div>
                     </figure>
 
@@ -232,28 +205,10 @@
     </ul>
     <img class="arrow-left" src="img/arrow-left.png" />
     <img class="arrow-right" src="img/arrow-right.png" />
-    <script>
-        window.mySwipe = new Swipe(document.getElementById('slider'), {
-            startSlide: 0,
-            auto: false,
-            continuous: true,
-            callback: function (index, elem) {
-                var i = bullets.length;
-                while (i--) {
-                    bullets[i].className = 'off';
-                }
-                bullets[index].className = 'on';
-            },
-            transitionEnd: function (index, elem) {
-
-            }
-        });
-        var bullets = document.getElementById('position').getElementsByTagName('li');
-        var i = bullets.length;
-        while (i--) {
-            bullets[i].className = 'off';
-        }
-        bullets[0].className = 'on';
-    </script>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <img class="fullsize-img"
+             id="modal-img" />
+    </div>
 </body>
 </html>
