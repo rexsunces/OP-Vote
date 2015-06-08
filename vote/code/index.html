@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="css/swiper.css" rel="stylesheet" />
+
+    <script src="js/zepto.min.js"></script>
+    <script src="js/touch.js"></script>
+    <script src="js/swipe.js"></script>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        .swipe {
+            overflow: hidden;
+            visibility: hidden;
+            position: relative;
+        }
+
+        .swipe-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+
+            .swipe-wrap > figure {
+                float: left;
+                width: 100%;
+                position: relative;
+            }
+
+        #slider {
+            max-width: 650px; /* 设置最大的宽度 */
+            margin: 0px auto; /* 居中对齐 */
+        }
+
+        figure {
+            margin: 0; /* 对齐，四周宽度都为0，在轮播的时候，以整张图片进行移动 */
+        }
+
+        .image {
+            height: 54%;
+            width: 90%;
+            left: 5%;
+            position: absolute;
+            top: 35%;
+        }
+        .arrow-left {
+            position: absolute;
+            top: 91%;
+            width: 3%;
+            left: 32%;
+        }
+        .arrow-right {
+            position: absolute;
+            top: 91%;
+            width: 3%;
+            left: 65%;
+        }
+        #position {
+            text-align: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            z-index: 1000;
+            top: 91%;
+            width: 50%;
+            left: 25%;
+        }
+
+            #position li {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+
+        li.off {
+            background: lightgrey;
+            box-shadow: inset 1px black,0 0 1px 1px #202020;
+            opacity: 0.6;
+        }
+
+        li.on {
+            box-shadow: inset 0 1px 3px -1px white,0 1px 2px white;
+            background-color: white;
+            opacity: 1;
+        }
+
+        .per-image-div {
+            width: 50%;
+            height: 50%;
+            float: left;
+        }
+
+        .per-image {
+            border: 5px #0091c3 solid;
+            height: 60%;
+            width: 60%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .per-image img{
+            width:100%;
+            height:100%;
+        }
+
+        .per-vote-info {
+            display: block;
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+            font-size: xx-small;
+        }
+
+            .per-vote-info div {
+                float: left;
+            }
+
+            .per-vote-info .name {
+
+            }
+
+            .per-vote-info .nums {
+                margin-left:10%;
+            }
+            .per-vote-info .name-text {
+                margin-left: 5%;
+            }
+
+            .per-vote-info .nums-text {
+                margin-left: 5%;
+            }
+
+        .per-vote-btn {
+            display: block;
+            width: 80%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-2 page" style=" position: absolute; width: 100%; height: 100%; background: url(img/vote-back.png) center no-repeat; background-size: 100% 100%; ">
+        <header style="height:100%;width:100%;position:absolute">
+            <div id="slider" class="swipe" style="visibility: visible; height: 100%; width: 100%;">
+                <div class="swipe-wrap" style="height: 100%; width: 100%;">
+                    <figure style="height: 100%; width: 100%;margin:0px">
+                        <div class="wrap" style="height: 100%; width: 100%;">
+                            <div class="image" style="background-color: green; ">
+                                <div class="per-image-div">
+                                    <div class="per-image"><img src="img/3.jpg" /></div>
+                                    <div class="per-vote-info">
+                                        <div class="name">姓名</div>
+                                        <div class="name-text">曹大志</div>
+                                        <div class="nums">票数</div>
+                                        <div class="nums-text">8888</div>
+                                    </div>
+                                    <img class="per-vote-btn" src="img/vote-btn.png" />
+                                </div>
+                                <div class="per-image-div">
+                                    <div class="per-image"><img src="img/3.jpg" /></div>
+                                    <div class="per-vote-info">
+                                        <div class="name">姓名</div>
+                                        <div class="name-text">曹大志</div>
+                                        <div class="nums">票数</div>
+                                        <div class="nums-text">8888</div>
+                                    </div>
+                                    <img class="per-vote-btn" src="img/vote-btn.png" />
+                                </div>
+                                <div class="per-image-div">
+                                    <div class="per-image"><img src="img/3.jpg" /></div>
+                                    <div class="per-vote-info">
+                                        <div class="name">姓名</div>
+                                        <div class="name-text">曹大志</div>
+                                        <div class="nums">票数</div>
+                                        <div class="nums-text">8888</div>
+                                    </div>
+                                    <img class="per-vote-btn" src="img/vote-btn.png" />
+                                </div>
+                                <div class="per-image-div">
+                                    <div class="per-image"><img src="img/3.jpg" /></div>
+                                    <div class="per-vote-info">
+                                        <div class="name">姓名</div>
+                                        <div class="name-text">曹大志</div>
+                                        <div class="nums">票数</div>
+                                        <div class="nums-text">8888</div>
+                                    </div>
+                                    <img class="per-vote-btn" src="img/vote-btn.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <figure style="height: 100%; width: 100%; margin: 0px">
+                        <div class="wrap" style="height: 100%; width: 100%;">
+                            <div class="image" style="background-color: blue;  "> </div>
+                        </div>
+                    </figure>
+                    <figure style="height: 100%; width: 100%; margin: 0px">
+                        <div class="wrap" style="height: 100%; width: 100%;">
+                            <div class="image" style="background-color: red;  "> </div>
+                        </div>
+                    </figure>
+                    <figure style="height: 100%; width: 100%; margin: 0px">
+                        <div class="wrap" style="height: 100%; width: 100%;">
+                            <div class="image" style="background-color: yellow;  "> </div>
+                        </div>
+                    </figure>
+                    <figure style="height: 100%; width: 100%; margin: 0px">
+                        <div class="wrap" style="height: 100%; width: 100%;">
+                            <div class="image" style="background-color: black;  "> </div>
+                        </div>
+                    </figure>
+
+
+                </div>
+            </div>
+        </header>
+    </div>
+    <ul id="position">
+        <li class="on"></li>
+        <li class=""></li>
+        <li class=""></li>
+        <li class=""></li>
+        <li class=""></li>
+    </ul>
+    <img class="arrow-left" src="img/arrow-left.png" />
+    <img class="arrow-right" src="img/arrow-right.png" />
+    <script>
+        window.mySwipe = new Swipe(document.getElementById('slider'), {
+            startSlide: 0,
+            auto: false,
+            continuous: true,
+            callback: function (index, elem) {
+                var i = bullets.length;
+                while (i--) {
+                    bullets[i].className = 'off';
+                }
+                bullets[index].className = 'on';
+            },
+            transitionEnd: function (index, elem) {
+
+            }
+        });
+        var bullets = document.getElementById('position').getElementsByTagName('li');
+        var i = bullets.length;
+        while (i--) {
+            bullets[i].className = 'off';
+        }
+        bullets[0].className = 'on';
+    </script>
+</body>
+</html>
