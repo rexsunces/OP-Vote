@@ -1,4 +1,5 @@
-﻿
+﻿var nowUserId = "123";
+
 $(function () {
     window.mySwipe = new Swipe(document.getElementById('slider'), {
         startSlide: 0,
@@ -38,17 +39,32 @@ $(function () {
     })
 })
 
+
+//获取当前用户的微信Id
+function GetNowUserId() {
+    //nowUserId=xxx;
+}
+
 //更新投票
 function UpdateVotes(userId) {
+    
     var submitData = {
-        "userId": userId,
+        "userId": userId,//图片上的人的userId
+        "nowUserId":nowUserId//当前微信使用者的userId
     };
     $.ajax({
         type: "post",
-        url: "/api/game/play",
+       // url: "/api/game/play",
         data: JSON.stringify(submitData),
         contentType: "application/json; charset=utf-8",
         success: function (data) {
+            if (data.success == true) {
+                alert("投票成功！");
+                //返回此刻该候选人的票数，并设置
+                //$("#votes-" + submitData.userId).text(xxx);
+            } else {
+                alert("每天只能投3票哦！");//此处true和false没有覆盖所有情况
+            }
         }, 
         error: function (e) {
             alert($.parseJSON(e.responseText));
@@ -90,7 +106,7 @@ function GetAndSetTotalImages() {
                                                                     "<div class='name'>姓名</div>" +
                                                                     "<div class='name-text'>" + data.data[i].userName + "</div>" +
                                                                     "<div class='nums'>票数</div>" +
-                                                                    "<div class='nums-text'>" + data.data[i].currentVotes + "</div>" +
+                                                                    "<div id='votes-" + data.data[i].userId + "' class='nums-text'>" + data.data[i].currentVotes + "</div>" +
                                                                 "</div>" +
                                                                 "<img user-data='" + data.data[i].userId + "' class='per-vote-btn' src='img/vote-btn.png' />" +
                                     "</div>";
